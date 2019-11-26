@@ -63,6 +63,5 @@ The purpose of this document is to describe the structure and general operating 
   - [Data models](./docs/data_models.md)
   - [Test the API with Postman](./docs/postman.md)
   - [Documenting the API with Swagger](./docs/swagger.md)
-- [Library homebrewlib](https://github.com/floriandanielit/homebrewlib)
 
 
