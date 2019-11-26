@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <title>Online Currency Converter</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+
+<body>
+    <div class="container">
+        <h1 class="display-4 mb-4">Online Currency Converter</h1>
+        <hr>
+
+        <form id="addPost">
+            <div class="form-group">
+                <h5>Amount to convert (e.g. 12.35)</h5>
+                <input type="text" id="amount to convert" class="form-control" placeholder="amount to convert">
+                <hr>
+            </div>
+            <div class="form-group">
+                <h5>Source currency to convert (e.g. EUR, USD)</h5>
+                <select name="source currency to convert">
+                    <option value="USD">USD</option>
+                    <option value="JPY">JPY</option>
+                    <option value="BGN">BGN</option>
+                    <option value="CZK">CZK</option>
+                    <option value="DKK">DKK</option>
+                    <option value="GBP">GBP</option>
+                    <option value="HUF">HUF</option>
+                    <option value="PLN">PLN</option>
+                    <option value="RON">RON</option>
+                    <option value="SEK">SEK</option>
+                    <option value="CHF">CHF</option>
+                    <option value="ISK">ISK</option>
+                    <option value="NOK">NOK</option>
+                    <option value="HRK">HRK</option>
+                    <option value="RUB">RUB</option>
+                    <option value="TRY">TRY</option>
+                    <option value="AUD">AUD</option>
+                    <option value="BRL">BRL</option>
+                    <option value="CAD">CAD</option>
+                    <option value="CNY">CNY</option>
+                    <option value="HKD">HKD</option>
+                    <option value="IDR">IDR</option>
+                    <option value="ILS">ILS</option>
+                    <option value="INR">INR</option>
+                    <option value="KRW">KRW</option>
+                    <option value="MXN">MXN</option>
+                    <option value="MYR">MYR</option>
+                    <option value="NZD">NZD</option>
+                    <option value="PHP">PHP</option>
+                    <option value="SGD">SGD</option>
+                    <option value="THB">THB</option>
+                    <option value="ZAR">ZAR</option>
+                </select>
+                <hr>
+            </div>
+            <div class="form-group">
+                <h5>Destination currency to convert (e.g. EUR, USD)</h5>
+                <select name="destination currency to conver">
+                    <option value="USD">USD</option>
+                    <option value="JPY">JPY</option>
+                    <option value="BGN">BGN</option>
+                    <option value="CZK">CZK</option>
+                    <option value="DKK">DKK</option>
+                    <option value="GBP">GBP</option>
+                    <option value="HUF">HUF</option>
+                    <option value="PLN">PLN</option>
+                    <option value="RON">RON</option>
+                    <option value="SEK">SEK</option>
+                    <option value="CHF">CHF</option>
+                    <option value="ISK">ISK</option>
+                    <option value="NOK">NOK</option>
+                    <option value="HRK">HRK</option>
+                    <option value="RUB">RUB</option>
+                    <option value="TRY">TRY</option>
+                    <option value="AUD">AUD</option>
+                    <option value="BRL">BRL</option>
+                    <option value="CAD">CAD</option>
+                    <option value="CNY">CNY</option>
+                    <option value="HKD">HKD</option>
+                    <option value="IDR">IDR</option>
+                    <option value="ILS">ILS</option>
+                    <option value="INR">INR</option>
+                    <option value="KRW">KRW</option>
+                    <option value="MXN">MXN</option>
+                    <option value="MYR">MYR</option>
+                    <option value="NZD">NZD</option>
+                    <option value="PHP">PHP</option>
+                    <option value="SGD">SGD</option>
+                    <option value="THB">THB</option>
+                    <option value="ZAR">ZAR</option>
+                </select>
+                <hr>
+            </div>
+            <div class="form-group">
+                <h5>Reference date for the exchange rate, in YYYY-MM-DD format</h5>
+                <select name="reference date for the exchange rate">
+                    <option value="2019-11-22">2019-11-22</option>
+                    <option value="2019-11-21">2019-11-21</option>
+                    <option value="2019-11-2">2019-11-2</option>
+                    <option value="2019-11-19">2019-11-19</option>
+                    <option value="2019-11-18">2019-11-18</option>
+                    <option value="2019-11-15">2019-11-15</option>
+                    <option value="2019-11-14">2019-11-14</option>
+                    <option value="2019-11-13">2019-11-13</option>
+                    <option value="2019-11-12">2019-11-12</option>
+                    <option value="2019-11-11">2019-11-11</option>
+                    <option value="2019-11-08">2019-11-08</option>
+                    <option value="2019-11-07">2019-11-07</option>
+                    <option value="2019-11-06">2019-11-06</option>
+                    <option value="2019-11-05">2019-11-05</option>
+                    <option value="2019-11-04">2019-11-04</option>
+                    <option value="2019-11-01">2019-11-01</option>
+                    <option value="2019-10-31">2019-10-31</option>
+                    <option value="BRL">BRL</option>
+                    <option value="CAD">CAD</option>
+                    <option value="CNY">CNY</option>
+                    <option value="HKD">HKD</option>
+                    <option value="IDR">IDR</option>
+                    <option value="ILS">ILS</option>
+                    <option value="INR">INR</option>
+                    <option value="KRW">KRW</option>
+                    <option value="MXN">MXN</option>
+                    <option value="MYR">MYR</option>
+                    <option value="NZD">NZD</option>
+                    <option value="PHP">PHP</option>
+                    <option value="SGD">SGD</option>
+                    <option value="THB">THB</option>
+                    <option value="ZAR">ZAR</option>
+                </select>
+                <hr>
+            </div>
+            <div class="form-group">
+                <h5>Reference date for the exchange rate, in YYYY-MM-DD format</h5>
+                <input type="date" placeholder="YYYY-MM-DD"></input>
+                <hr>
+            </div>
+            <input type="submit" class="btn btn-secondary" value="submit">
+            <h5>Amount</h5>
+            <input type="text" id="amount" class="form-control" placeholder="amount">
+            <hr>
+            <input type="reset" class="btn btn-secondary" value="reset">
+        </form>
+    </div>
+
+
+    <main>
+        <ul id="time"></ul>
+        <ul id="currency"></ul>
+        <ul id="rate"></ul>
+    </main>
+
+
+
+
+    <script>
+
+        //XMLHttpRequest() - has responseXML property in the response
+
+
+        // document.getElementById("getTime").addEventListener('click', getTime);
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            //fetch data as soon as the page has loaded
+            let url = "read.xml";
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    console.log(data); //string
+                    let parser = new DOMParser();
+                    let xml = parser.parseFromString(data, "application/xml"); //??application/json
+                    document.getElementById('output').textContent = data;
+                    console.log(xml);
+                    buildTimeList(xml);
+                });
+        })
+
+        // function buildTimeList(x) {
+        //     let list = document.getElementById('time');
+        //     let time = x.getElementByTagName('time');
+        //     for(let i=0; i<time.lenght; i++) {
+        //         let li = document.createElement('li');
+        //         let time = time[i].firstChild.nodeValue;
+        //         li.textContent = time;
+        //         list.appendChild(li);
+
+        //     }
+        // }
+
+        function buildCubeList(x) {
+            let list = document.getElementById('Cube');
+            let time = x.getElementByTagName('Cube');
+            for(let i=0; i<Cube.lenght; i++) {
+                let li = document.createElement('li');
+                let currency = currency[i].getAttribute('currency');
+                li.textContent = currency;
+                list.appendChild(li);
+
+            }
+        }
+
+
+        // function getTime() {
+        //     fetch('read.xml')
+        //         .then((res) => res.json())
+        //         .then((data) => {
+        //             let output = '<h2>Time</h2>';
+        //             data.forEach(function (time) {
+        //                 output +=
+        //                     <ul>
+        //                         <li>Time: ${time.time} </li>
+        //                         <li>Currency: ${time.currency} </li>
+        //                         <li>Rate: ${time.rate} </li>
+        //                     </ul>
+        //                     ;
+        //             });
+        //             document.getElementById('output').innerHTML = output;
+        //         })
+        // }
+
+
+
+    </script>
+</body>
+
+</html>

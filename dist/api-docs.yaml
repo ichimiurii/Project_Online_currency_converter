@@ -1,0 +1,379 @@
+swagger: "2.0"
+info:
+  description: "This is a sample server Online Currency Converter."
+  version: 1.0.0
+  title: Swagger OpenAPI Documentation Specification (api-docs.yaml)
+  contact:
+    email: "iurie.ichim@gmail.com"
+  license:
+    name: Swagger OpenAPI Documentation Specification 2.0
+    url: "https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#swaggerObject"
+basePath: /api/
+
+
+
+tags:
+  - name: convert
+    description: Everything about your Converter
+    externalDocs:
+      description: Find out more
+
+
+
+schemes:
+  - http
+  - https
+
+
+consumes:
+  - application/json
+
+
+produces:
+  - application/json
+
+
+
+paths:
+ 
+  /convert:
+    get:
+      tags:
+        - Convert
+      summary: Return every avaiable convert
+      description: "Returns all public Converters inserted into the database"
+      operationId: findConvertByTags
+      consumes:
+        - application/json
+        - application/x-www-form-urlencoded
+        - multipart/form-data
+        - application/octet-stream
+      produces:
+        - application/json
+      parameters:
+        # - name: tags
+        #   in: query
+        #   description: Tags to filter by
+        #   required: false
+        #   type: array
+        #   items:
+        #     type: string
+        #   collectionFormat: multi
+        #   schema:
+        #     $ref: "#/definitions/Convert"
+      responses:
+        "200":
+          description: An array of Convert with their associated properties.
+          schema:
+            $ref: "#/definitions/Convert"
+        "404":
+          description: No Convert were found on the database.
+        "500":
+          description: The server encountered an unexpected error and couldn't execute the request.
+      security:
+        - api_key: []
+        - OnlineCurrencyConverter_auth:
+          - "user:user"
+          - "admin:admin"
+
+
+    post:
+      tags:
+        - Convert
+      summary: Add a new Convert Item
+      x-swagger-router-controller: SampleController
+      description: "Add a new Convert Item into the database"
+      operationId: addConvert
+      consumes:
+        - application/json
+        - application/x-www-form-urlencoded
+        - multipart/form-data
+        - application/octet-stream
+      produces:
+        - application/json
+      parameters:
+        - name: amount
+          in: formData
+          type: number
+          format: float
+          required: true
+          description:  the amount to convert (e.g. 12.35)
+          schema:
+            $ref: "#/definitions/Convert"
+        - name: src​_currency
+          in: formData
+          type: string
+          enum: [EUR, USD, GBP]
+          required: true
+          description: ISO currency code for the source currency to convert (e.g. EUR, USD, GBP)
+          schema:
+            $ref: "#/definitions/Convert"
+        - name: dest​_currency
+          in: formData
+          type: string
+          enum: [EUR, USD, GBP]
+          required: true
+          description: ISO currency code for the destination currency to convert (e.g. EUR, USD, GBP)
+          schema:
+            $ref: "#/definitions/Convert"
+        - name: re​ference_date
+          in: formData
+          type: string
+          required: true
+          description: reference date for the exchange rate, in YYYY-MM-DD format
+          schema:
+          $ref: "#/definitions/Convert"
+        - name: description
+          in: formData
+          type: string
+          required: false
+          description: optional free text description
+          schema:
+            $ref: "#/definitions/Convert"
+      responses:
+        "201":
+          description: The ID of the new Converter.
+        "422":
+          description: Invalid input, cannot process.
+      security:
+        - api_key: []
+        - OnlineCurrencyConverter_auth:
+          - "user:user"
+          - "admin:admin"          
+
+
+  /convert/{id}:
+    get:
+      tags:
+        - Convert
+      summary: Return the details of the Converter with specified ID
+      description: "Return the specified Converter from the database"
+      operationId: getConvertById
+      consumes:
+        - application/x-www-form-urlencoded
+        - multipart/form-data
+        - application/octet-stream
+      produces:
+        - application/json
+      parameters:
+        - name: re​ference_date
+          in: path
+          description: The re​ference_date of the Converter to search for
+          required: true
+          type: string
+          schema:
+            $ref: "#/definitions/Convert"
+      responses:
+        "200":
+          description: Successful operation, the requested re​ference date.
+        "404":
+          description: No Convert matching the specified re​ference date found on server.
+        "500":
+          description: The server encountered an unexpected error and couldn't execute the request.
+      security:
+        - api_key: []
+        - OnlineCurrencyConverter_auth:
+          - "user:user"
+          - "admin:admin"
+
+
+    put:
+      tags:
+        - Convert
+      summary: Update a existing Converter
+      description: "Update the specified Converter inserted into the database"
+      operationId: updateConvert
+      consumes:
+        - application/json
+        - application/x-www-form-urlencoded
+        - multipart/form-data
+        - application/octet-stream
+      produces:
+        - application/json
+      parameters:
+        - name: amount
+          in: formData
+          type: number
+          format: float
+          required: true
+          description:  the amount to convert (e.g. 12.35)
+          schema:
+            $ref: "#/definitions/Convert"
+        - name: src​_currency
+          in: formData
+          type: string
+          enum: [EUR, USD, GBP]
+          required: true
+          description: ISO currency code for the source currency to convert (e.g. EUR, USD, GBP)
+          schema:
+            $ref: "#/definitions/Convert"
+        - name: dest​_currency
+          in: formData
+          type: string
+          enum: [EUR, USD, GBP]
+          required: true
+          description: ISO currency code for the destination currency to convert (e.g. EUR, USD, GBP)
+          schema:
+            $ref: "#/definitions/Convert"
+        - name: re​ference_date
+          in: formData
+          type: string
+          required: true
+          description: reference date for the exchange rate, in YYYY-MM-DD format
+          schema:
+          $ref: "#/definitions/Convert"
+        - name: description
+          in: formData
+          type: string
+          required: false
+          description: optional free text description
+          schema:
+            $ref: "#/definitions/Convert"
+      responses:
+        "200":
+          description: The Converter with specified re​ference date has been successfully modified.
+        "500":
+          description: The server encountered an unexpected error and couldn't execute the request.
+      security:
+        - api_key: []
+        - OnlineCurrencyConverter_auth:
+          - "user:user"
+          - "admin:admin"
+
+
+    delete:
+      tags:
+        - Convert
+      summary: Delete a existing Converter
+      description: "Delete the specified Converter inserted from the database"
+      operationId: deleteConvert
+      consumes:
+        - multipart/form-data
+        - application/x-www-form-urlencoded
+        - multipart/form-data
+        - application/octet-stream
+      produces:
+        - application/json
+      parameters:
+        - name: re​ference_date
+          in: path
+          description: The re​ference date of the Converter to delete
+          required: true
+          type: string
+          schema:
+            $ref: "#/definitions/Convert"
+      responses:
+        "200":
+          description: The Converter with specified re​ference date has been successfully deleted.
+        "500":
+          description: The server encountered an unexpected error and execute the request.
+      security:
+        - api_key: []
+        - OnlineCurrencyConverter_auth:
+          - "admin:admin"
+
+
+
+securityDefinitions:
+  api_key:
+    type: apiKey
+    name: Authorization
+    in: header
+    description: Requests should pass an api_key header.
+
+security: 
+ - api_key: []
+ 
+
+definitions:
+
+
+  Misc:
+    type: object
+    required:
+      - amount
+      - src​_currency
+      - dest​_currency
+      - re​ference_date
+      - description
+    properties:
+      amount: 
+        type: integer
+        format: int32
+        description: the amount to convert (e.g. 12.35)
+        example: 12.35
+      src​_currency:
+        src​_currency: array
+        items:
+          src​_currency: string
+          enum:
+            - EUR
+            - USD
+            - GBP
+        example: EUR, USD, GBP
+      dest​_currency:
+        dest​_currency: array
+        items:
+          dest​_currency: string
+          enum:
+            - EUR
+            - USD
+            - GBP
+        example: EUR, USD, GBP
+      re​ference_date:
+        type: string
+        format: date
+        example: 2019-05-12
+      description:
+        type: string
+        example: optional free text description
+
+
+
+  Category:
+    properties:
+      amount:
+        type: number
+        format: float
+      src​_currency:
+        type: string
+      dest​_currency:
+        type: string
+      re​ference_date:
+        type: string
+      description: 
+        type: string
+
+        
+
+
+  Tag:
+    properties:
+      amount:
+        type: number
+        format: float
+      src​_currency:
+        type: string
+      dest​_currency:
+        type: string
+      re​ference_date:
+        type: string
+      description: 
+        type: string
+  
+
+
+
+
+  ApiResponse:
+    properties:
+      code:
+        type: integer
+        format: int32
+      type:
+        type: string
+      message:
+        type: string
+    xml:
+      name: "##default"
+
