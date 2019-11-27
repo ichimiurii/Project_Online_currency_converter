@@ -13,11 +13,11 @@ The purpose of this project is to develop an online application that allows to c
 - **...**
 
 
-The application is called **Online Currency Converter**. The project has already started and the general structure of the application is a client-server application in which the server exposes a set of APIs for data management (following the REST style and implemented in JavaScript / [node.js](https://nodejs.org)) and the client is directed to the end user, taking advantage of the back-end APIs. The client is a single-page component application using [Vue.js](https://vuejs.org)  page using  [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) with a design based on [Semantic UI](https://semantic-ui.com).
+The application is called **Online Currency Converter**. The project has already started and the general structure of the application is a client-server application in which the server exposes a set of APIs for data management (following the REST style and implemented in JavaScript / [node.js](https://nodejs.org)) and the client is directed to the end user, taking advantage of the back-end APIs. The client is a single-page component application using  [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript).
 
 
 
-The Online CUrrency Converter is also a playground for the development of applications based on modern web technologies oriented to all those motivated **Students** who wish to deepen their knowledge on the Web by practice and the implementation of the real functions, various productivity tools, the social network, etc.,  that is contributing to the project and **hopefully in the end get a job :)))))))**
+The Online Currency Converter is also a playground for the development of applications based on modern web technologies oriented to all those motivated **Students** who wish to deepen their knowledge on the Web by practice and the implementation of the real functions, various productivity tools, the social network, etc.,  that is contributing to the project and **hopefully in the end get a job :)))))))**
 I'm a student at the [Politecnico di Milano](https://www.polimi.it).
 
 
@@ -31,8 +31,6 @@ I'm a student at the [Politecnico di Milano](https://www.polimi.it).
 - **Web technologies (if not already known)**
 - **Development / use of REST web services**
 - **Application development from services accessible via the Web**
-- **Vue.js**
-- **Semantic UI**
 - **Node.js**
 - **Design APIs Directly in [Postman](https://www.getpostman.com)**
 - **Documentation with [Swagger](https://swagger.io)**
@@ -54,8 +52,6 @@ The purpose of this document is to describe the structure and general operating 
 - [Technologies](#Technologies)
   - [HTML](https://www.w3schools.com/html/html_intro.asp), [CSS](https://www.w3.org/Style/CSS/) e [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
   - [Node.js](https://nodejs.org/en/) e [npm](https://www.npmjs.com)
-  - [Vue.js](https://vuejs.org)
-  - [Semantic UI](https://semantic-ui.com)
   - [Postman](https://www.getpostman.com)
   - [Swagger](https://swagger.io)
 - [Back-end (API)](#Back-end-(API))
